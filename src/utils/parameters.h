@@ -11,7 +11,12 @@ const float g = 9.81;       // m/s^2
 const float m = 30.0e-3;    // kg
 const float I_xx = 16.0e-6; // kg.m^2
 const float I_yy = 16.0e-6; // kg.m^2
-const float I_zz = 29.0e-6; // kg.m^2
+const float I_zz = 1.16e-07; // kg.m^2
 const float l = 33.0e-3;    // m
+// parâmetros do motor
+idos
+
+const float kl =  1.726e-08;
+const float kd = 1.567e-10;
 
 #endif

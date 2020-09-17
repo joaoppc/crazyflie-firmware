@@ -16,7 +16,7 @@ const float l = 33.0e-3;    // m
 // parâmetros do motor
 idos
 
-const float kl =  1.726e-08; //
-const float kd = 1.567e-10; //
+const float kl =  1.726e-08;
+const float kd = 1.567e-10;
 
 #endif

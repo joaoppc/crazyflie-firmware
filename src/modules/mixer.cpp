@@ -2,11 +2,11 @@
 // Class constructor
 Mixer::Mixer () : motor_1(MOTOR1), motor_2(MOTOR2), motor_3(MOTOR3), motor_4(MOTOR4), ledR1(LED_RED_R), ledR2(LED_RED_L), ledG1(LED_GREEN_R), ledG2(LED_GREEN_L), ledB1(LED_BLUE_L)
     {
-        ledR1 = false;
-        ledR2 = false;
-        ledG1 = false;
-        ledG2 = false;
-        ledB1 = false;
+        ledR1 = true;
+        ledR2 = true;
+        ledG1 = true;
+        ledG2 = true;
+        ledB1 = true;
     }
 
 // Actuate motors with desired total trust force (N) and torques (N.m)
@@ -71,14 +71,12 @@ void Mixer::arm()
             wait(0.5);
             count--;
         }
-        ledR1 = true;
-        ledR2 = true;
     }
 
 void Mixer::disarm()
     {
-        ledR1 = false;
-        ledR2 = false;
+        ledR1 = true;
+        ledR2 = true;
         armed = false;
         motor_1 = 0;
         motor_2 = 0;
@@ -94,6 +92,4 @@ void Mixer::disarm()
             wait(0.5);
             count--;
         }
-        ledG1 = true;
-        ledG2 = true;
     }

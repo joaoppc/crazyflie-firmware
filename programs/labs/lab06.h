@@ -10,7 +10,7 @@ int main ()
     mixer.actuate (0.7* m*g ,0 ,0 ,0) ;
     wait (5) ;
     // Turn off all motors
-    mixer.arm();
+    mixer.disarm();
     // End of program
     while (1)
         {

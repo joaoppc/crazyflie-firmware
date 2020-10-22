@@ -20,4 +20,8 @@ const float a1 = 4.488e-12; //
 const float kl =  1.726e-08;
 const float kd = 1.567e-10;
 
+const float wc = 1.0;  //0.1
+const float dt = 0.002;
+const float alpha = wc*dt/(1.0+wc*dt);
+
 #endif

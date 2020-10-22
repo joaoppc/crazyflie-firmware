@@ -1,7 +1,7 @@
 #include "mbed.h"
 #include "crazyflie.h"
 // Declare mixer
-Mixer mixer ;
+Mixer mixer;
 // Main program
 int main ()
     {

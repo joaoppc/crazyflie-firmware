@@ -6,15 +6,15 @@
 // Attitude estimator class
 class AttitudeEstimator
 {
-    public :
+    public:
     // Class constructor
-    AttitudeEstimator () ;
+    AttitudeEstimator();
     // Initialize class
-    void init () ;
+    void init();
     // Estimate Euler angles (rad ) and angular velocities ( rad /s)
-    void estimate () ;
+    void estimate() ;
     // Euler angles ( rad)
-    float phi , theta , psi;
+    float phi, theta, psi;
     // Angular velocities ( rad /s)
     float p, q, r;
 

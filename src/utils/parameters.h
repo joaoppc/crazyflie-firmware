@@ -20,8 +20,26 @@ const float a1 = 4.488e-12; //
 const float kl =  1.726e-08;
 const float kd = 1.567e-10;
 
-const float wc = 1.0;  //0.1
+// Attitude Estimator
+const float wc = 100.0;  //0.1
 const float dt = 0.002;
 const float alpha = wc*dt/(1.0+wc*dt);
+
+// Attitude Controller
+const float OS = 0.05f;
+const float TS = 0.2f;
+const float zeta = abs(log(OS))/sqrt(pow(log(OS),2)+pow(pi,2));
+const float wn = 4.0/(zeta*TS);
+const float kp_phi = pow(wn,2);
+const float kd_phi = 2.0*zeta*wn;
+const float kp_theta = kp_phi; 
+const float kd_theta = kd_phi;
+
+const float OS_psi = 0.05f;
+const float TS_psi = 0.6f;
+const float zeta_psi = abs(log(OS_psi))/sqrt(pow(log(OS_psi),2)+pow(pi,2));
+const float wn_psi = 4.0/(zeta_psi*TS_psi);
+const float kp_psi = pow(wn_psi,2);
+const float kd_psi = 2.0*zeta_psi*wn_psi;
 
 #endif

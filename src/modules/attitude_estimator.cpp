@@ -17,9 +17,9 @@ void AttitudeEstimator::init()
         for ( int i =0; i <500; i ++)
         {
             imu . read () ;
-            p_bias = imu.gx/500.0;
-            q_bias = imu.gy/500.0;
-            r_bias = imu.gz/500.0;
+            p_bias += imu.gx/500.0;
+            q_bias += imu.gy/500.0;
+            r_bias += imu.gz/500.0;
             wait(dt);
         }
     }
@@ -43,7 +43,7 @@ void AttitudeEstimator::estimate()
 //        float psi_g = psi + r*dt;
         float psi_g = psi+(sin(phi)*(1.0/cos(theta))*q+cos(phi)*(1.0/cos(theta))*r)*dt; 
 
-        
+
         theta = ((1.0-alpha)*theta_g)+alpha*theta_a;
         phi=((1.0-alpha)*phi_g)+alpha*phi_a;
         psi = psi_g;

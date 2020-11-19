@@ -13,7 +13,7 @@ const float dt = 0.002;
 const float m = 30.0e-3;    // kg
 const float I_xx = 16.0e-6; // kg.m^2
 const float I_yy = 16.0e-6; // kg.m^2
-const float I_zz = 1.16e-07; // kg.m^2
+const float I_zz = 29.0e-6; // kg.m^2
 const float l = 33.0e-3;    // m
 // parâmetros do motor
 const float a2 = 1.16e-07;  //
@@ -23,7 +23,7 @@ const float kl =  1.726e-08;
 const float kd = 1.567e-10;
 
 // Attitude Estimator
-const float wc = 100.0;  //0.1
+const float wc = 0.1;  //0.1
 const float alpha = wc*dt/(1.0+wc*dt);
 
 // Attitude Controller
@@ -47,17 +47,18 @@ const float kd_psi = 2.0*zeta_psi*wn_psi;
 // Controlador vertical
 const float OS_cv = 0.005f; //0.005
 const float TS_cv = 2.0f; //2.0
-const float zeta_cv = abs(log(OS_cv))/sqrt(pow(log(OS_cv),2)+pow(pi,2));
+const float zeta_cv = sqrt(2.0)/2.0;// abs(log(OS_cv))/sqrt(pow(log(OS_cv),2)+pow(pi,2));
 const float wn_cv = 4.0/(zeta_cv*TS_cv);
 const float kp_cv = pow(wn_cv,2);
 const float kd_cv = 2.0*zeta_cv*wn_cv;
-const float freq_c_v = 3.0;
+const float freq_c_v = 10.0;
 const float L_o = freq_c_v*freq_c_v;
-const float L_o2 =  freq_c_v*freq_c_v; //2*zeta_cv*freq_c_v;
+const float L_o2 = 2*zeta_cv*freq_c_v;
+
 
 // Estimador Vertical
-const float alpha1 = 0.3;// L_o*dt_range; //(L_o*dt_range)/(1.0+L_o*dt_range);// 0.3
-const float alpha2 = 0.3;// L_o2*dt_range; // (L_o2*dt_range)/(1.0+L_o2*dt_range); // 0.3
+const float alpha1 =  L_o*dt_range; //(L_o*dt_range)/(1.0+L_o*dt_range);// 0.3
+const float alpha2 = L_o2*dt_range; // (L_o2*dt_range)/(1.0+L_o2*dt_range); // 0.3
 
 // Estimador horizontal
 const float gamma = 42.0*pi/180.0;

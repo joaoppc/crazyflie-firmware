@@ -30,9 +30,7 @@ void VerticalEstimator::correct(float phi, float theta )
         if (range.d < 2.0)
         {
             float z_m = range.d*cos(phi)*cos(theta);
-            float w_m =(z_m-z_m_prev)/dt_range;
-            z += alpha1*(z_m - z);
-            w += alpha2*(w_m - w);
-            z_m_prev = z_m;
+            w += alpha1*(z_m - z);
+            z += alpha2*(z_m - z);
         }
     }

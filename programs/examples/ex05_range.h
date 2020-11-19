@@ -6,8 +6,8 @@
 USBSerial serial;
 
 // Define range sensor object
-VL53L0X range(E_SDA,E_SCL); // Crazyflie 2.0 range sensor
-// VL53L1X range(E_SDA,E_SCL); // Crazyflie 2.1 range sensor
+//VL53L0X range(E_SDA,E_SCL); // Crazyflie 2.0 range sensor
+VL53L1X range(E_SDA,E_SCL); // Crazyflie 2.1 range sensor
 
 // Main program
 int main()
@@ -19,6 +19,6 @@ int main()
     {
         range.read();
         serial.printf("Range [m]: %6.2f \n",range.d);
-        wait(0.1);
+        wait(1.0);
     }
 }

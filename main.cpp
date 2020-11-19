@@ -15,6 +15,6 @@
 // #include "programs/labs/lab07.h"
 // #include "programs/labs/lab08.h"
 // #include "programs/labs/lab09.h"
-#include "programs/labs/lab10.h"
+//#include "programs/labs/lab10.h"
 // #include "programs/labs/lab11.h"
-//#include "programs/labs/lab12.h"
+#include "programs/labs/lab12.h"

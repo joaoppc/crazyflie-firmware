@@ -24,7 +24,7 @@ void callback_range() { flag_range = true; }
 int main()
 {
 // Set references
-float z_r = 0.5;
+float z_r = 0.1;
 float x_r = 0.0;
 float y_r = 0.0;
 float psi_r = 0.0;
@@ -58,6 +58,9 @@ while ( abs( att_est.phi ) <= pi /4.0 && abs (att_est.theta) <= pi /4.0 && abs(a
                 ver_cont.control(z_r , ver_est.z, ver_est.w);
                 att_cont.control( hor_cont.phi_r , hor_cont.theta_r, psi_r, att_est.phi, att_est.theta, att_est .psi, att_est.p, att_est.q, att_est.r);
                 mixer.actuate(ver_cont.ft /( cos( att_est.phi) *cos( att_est.theta )), att_cont.tau_phi, att_cont.tau_theta, att_cont.tau_psi );
+                if (z_r < 0.7) {
+                    z_r += 0.001;
+                } 
             }
     }
     // Disarm motors and end program

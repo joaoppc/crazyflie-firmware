@@ -47,16 +47,17 @@ const float kd_psi = 2.0*zeta_psi*wn_psi;
 // Controlador vertical
 const float OS_cv = 0.005f; //0.005
 const float TS_cv = 2.0f; //2.0
-const float zeta_cv = sqrt(2.0)/2.0;// abs(log(OS_cv))/sqrt(pow(log(OS_cv),2)+pow(pi,2));
+const float zeta_cv = abs(log(OS_cv))/sqrt(pow(log(OS_cv),2)+pow(pi,2));
 const float wn_cv = 4.0/(zeta_cv*TS_cv);
 const float kp_cv = pow(wn_cv,2);
 const float kd_cv = 2.0*zeta_cv*wn_cv;
 const float freq_c_v = 10.0;
-const float L_o = freq_c_v*freq_c_v;
-const float L_o2 = 2*zeta_cv*freq_c_v;
 
 
 // Estimador Vertical
+const float zeta_ev = sqrt(2.0)/2.0;
+const float L_o = freq_c_v*freq_c_v;
+const float L_o2 = 2*zeta_ev*freq_c_v;
 const float alpha1 =  L_o*dt_range; //(L_o*dt_range)/(1.0+L_o*dt_range);// 0.3
 const float alpha2 = L_o2*dt_range; // (L_o2*dt_range)/(1.0+L_o2*dt_range); // 0.3
 

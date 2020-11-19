@@ -23,7 +23,7 @@ const float kl =  1.726e-08;
 const float kd = 1.567e-10;
 
 // Attitude Estimator
-const float wc = 0.1;  //0.1
+const float wc = 1.0;  //0.1
 const float alpha = wc*dt/(1.0+wc*dt);
 
 // Attitude Controller

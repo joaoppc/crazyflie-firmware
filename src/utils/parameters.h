@@ -65,7 +65,7 @@ const float alpha2 = L_o2*dt_range; // (L_o2*dt_range)/(1.0+L_o2*dt_range); // 0
 const float gamma = 42.0*pi/180.0;
 const float W = 420.0;
 const float sigma = (2.0*tan(gamma/2.0))/(W*dt);
-const float l_ov = 50.0;
+const float l_oh = 50.0;
 
 // Controlador horizontal
 const float OS_ch = 0.005f;

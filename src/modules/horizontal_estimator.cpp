@@ -31,7 +31,7 @@ void HorizontalEstimator::correct(float phi, float theta, float p, float q, floa
                 flow.read();
                 float u_m = (sigma*flow.px+q)*d;
                 float v_m = (sigma*flow.py-p)*d;
-                u += l_ov*dt*(u_m-u);
-                v += l_ov*dt*(v_m-v);
+                u += l_oh*dt*(u_m-u);
+                v += l_oh*dt*(v_m-v);
             }
     }

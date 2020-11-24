@@ -34,10 +34,10 @@ ver_est.init();
 hor_est.init();
 // Initialize interrupts
 tic.attach(&callback, dt);
-tic_range.attach(&callback_range, dt_range );
+tic_range.attach(&callback_range, dt_range);
 // Arm motors and run controller while stable
 mixer.arm();
-while ( abs( att_est.phi ) <= pi /4.0 && abs (att_est.theta) <= pi /4.0 && abs(att_est.p) <= 4.0* pi && abs ( att_est.q) <= 4.0* pi && abs(att_est.r) <= 4.0*pi)
+while (abs(att_est.phi) <= pi /4.0 && abs (att_est.theta) <= pi /4.0 && abs(att_est.p) <= 4.0* pi && abs ( att_est.q) <= 4.0* pi && abs(att_est.r) <= 4.0*pi)
     {
         if(flag)
             {
@@ -52,8 +52,8 @@ while ( abs( att_est.phi ) <= pi /4.0 && abs (att_est.theta) <= pi /4.0 && abs(a
                 hor_est.predict(att_est.phi, att_est.theta );
                 if ( ver_est .z >= 0.05)
                     {
-                        hor_est.correct ( att_est.phi, att_est.theta, att_est.p, att_est.q, ver_est .z);
-                        hor_cont.control (x_r, y_r, hor_est .x, hor_est.y, hor_est.u, hor_est.v);
+                        hor_est.correct(att_est.phi, att_est.theta, att_est.p, att_est.q, ver_est.z);
+                        hor_cont.control(x_r, y_r, hor_est .x, hor_est.y, hor_est.u, hor_est.v);
                     }
                 ver_cont.control(z_r , ver_est.z, ver_est.w);
                 att_cont.control( hor_cont.phi_r , hor_cont.theta_r, psi_r, att_est.phi, att_est.theta, att_est .psi, att_est.p, att_est.q, att_est.r);
